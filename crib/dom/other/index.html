@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="style.css">
+   <title>'Other'</title>
+
+</head>
+
+<body>
+   <h1>[ Разное ]</h1>
+   <ul>
+      <li>MutationObserver: наблюдатель за изменениями</li>
+      <li>Selection и Range</li>
+      <li>Событийный цикл: микрозадачи и макрозадачи</li>
+   </ul>
+
+   <div contenteditable id="elem">Отредактируй <b>меня</b>, пожалуйста</div>
+
+
+   <p id="p">Example of Range: <i>italic</i> and <b>bold</b></p>
+
+   From <input id="start" type="number" value=1> – To <input id="end" type="number" value=4>
+   <button id="button">Click to select</button>
+
+   <p id="p2">Example of Range2: <i>italic</i> and <b>bold</b></p>
+
+   <p id="p3">Example of Range3: <i>italic</i> and <b>bold</b></p>
+
+   <p id="result"></p>
+
+   <p id="p4">Выдели меня: <i>курсив</i> и <b>жирный</b></p>
+
+   От <input id="from" disabled> – До <input id="to" disabled>
+
+   <div class="div5">
+      <p id="p5">Выдели меня: <i>курсив</i> и <b>жирный</b></p>
+
+      Склонировано: <span id="cloned"></span>
+      <br>
+      Как текст: <span id="astext"></span>
+   </div>
+
+   <p id="p6">Пример для выделения всего параграфа p6</p>
+   <p id="p7">Пример для выделения всего параграфа p7</p>
+
+   <textarea id="area">
+      Выделите что-нибудь в этом тексте, чтобы обновить значения ниже.
+   </textarea>
+   <br>
+   От <input id="fromTwo" disabled> – До <input id="toTwo" disabled>
+
+   <textarea id="areaMove" style="width:80%;height:60px">
+      Переведите фокус на меня, курсор окажется на 10-й позиции
+   </textarea>
+
+   <input id="inputStar" style="width:200px" value="Select here and click the button">
+   <button id="buttonStar">Обернуть выделение звёздочками *...*</button>
+
+   <div id="progress"></div>
+
+   <script src="main.js"></script>
+</body>
+
+</html>

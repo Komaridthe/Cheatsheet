@@ -1,0 +1,64 @@
+
+.highlight {
+  background-color: brown;
+}
+
+#bagua-table th {
+   text-align: center;
+   font-weight: bold;
+ }
+ 
+ #bagua-table td {
+   width: 100px;
+   white-space: nowrap;
+   text-align: center;
+   vertical-align: bottom;
+   padding-top: 5px;
+   padding-bottom: 12px;
+ }
+ 
+ #bagua-table .nw {
+   background: #999;
+ }
+ 
+ #bagua-table .n {
+   background: #03f;
+   color: #fff;
+ }
+ 
+ #bagua-table .ne {
+   background: #ff6;
+ }
+ 
+ #bagua-table .w {
+   background: #ff0;
+ }
+ 
+ #bagua-table .c {
+   background: #60c;
+   color: #fff;
+ }
+ 
+ #bagua-table .e {
+   background: #09f;
+ }
+ 
+ #bagua-table .sw {
+   background: #963;
+ }
+ 
+ #bagua-table .s {
+   background: #f60;
+ }
+ 
+ #bagua-table .se {
+   background: #0c3;
+ }
+ 
+ #bagua-table .highlight {
+   background: red;
+ }
+
+ #bagua-table td {
+   color: black
+ }

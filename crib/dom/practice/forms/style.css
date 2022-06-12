@@ -1,0 +1,67 @@
+html {
+   background-color: #212121;
+   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23ffffff' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+   background-size: 3px;
+   font-family: Arial, sans-serif;
+   color: #fff;
+}
+
+h1 {
+   margin: 100px auto 10px;
+   text-align: center;
+   font: 700 32px/40px BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+
+select {
+   margin: 30px 0;
+}
+
+.view,
+.edit {
+   height: 150px;
+   width: 400px;
+   font-family: sans-serif;
+   font-size: 14px;
+   display: block;
+   background-color: ivory;
+   color: black;
+}
+
+.view {
+   padding: 2px;
+   border: 1px solid black;
+}
+
+.edit {
+   border: 3px solid blue;
+   padding: 0px;
+}
+
+.edit:focus {
+   /* удаление обводки фокуса в Safari */
+   outline: none;
+}
+
+#mouse {
+   display: inline-block;
+   cursor: pointer;
+   margin: 0;
+}
+
+#mouse:focus {
+   outline: 1px dashed black;
+}
+td select,
+td input {
+   width: 150px;
+}
+
+#diagram td {
+   vertical-align: bottom;
+   text-align: center;
+   padding: 10px;
+}
+
+#diagram div {
+   margin: auto;
+}

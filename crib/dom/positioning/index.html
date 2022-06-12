@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>'Positioning'</title>
+
+   <style>
+      html {
+         background-color: #212121;
+         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23ffffff' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+         background-size: 3px;
+         font-family: Arial, sans-serif;
+         color: #fff;
+      }
+
+      h1 {
+         margin: 50px auto 100px;
+         text-align: center;
+         font: 700 32px/40px BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      }
+
+      ul,li{
+         list-style: none;
+      }
+
+      #field {
+         width: 200px;
+         border: 10px groove black;
+         background-color: #00FF00;
+         position: relative;
+         margin-bottom: 50px;
+      }
+
+      #ball {
+         position: absolute;
+         width: 40px;
+         height: 40px;
+      }
+
+      .parent {
+         position: relative;
+      }
+
+      #elem {
+         position: absolute;
+         left: 350px;
+         top: 10px;
+         width: 200px;
+         height: 100px;
+         background-color: rgb(100, 92, 92);
+         border: 6px solid rgb(0, 0, 0);
+         border-left: 10px solid rgb(0, 0, 0);
+         border-right: 10px solid rgb(0, 0, 0);
+         overflow: scroll;
+      }
+
+      .text {
+         font-size: 18px;
+         line-height: 20px;
+         margin: 200px 0 50px;
+         max-width: 300px;
+         text-align: left;
+      }
+
+      .text.text {
+         margin-top: 50px;
+      }
+
+      .btn__one {
+         background-color: rgb(89, 159, 180);
+         padding: 5px 10px;
+         border-radius: 15px;
+         margin-bottom: 30px;
+      }
+
+      .btn__two {
+         background-color: rgb(180, 174, 89);
+         padding: 5px 10px;
+         border-radius: 15px;
+         margin-bottom: 30px;
+      }
+
+      #btn__tree {
+         background-color: rgb(180, 95, 89);
+         padding: 5px 10px;
+         border-radius: 15px;
+         margin-bottom: 30px;
+      }
+
+      #h3 {
+         cursor: pointer;
+         display: inline-block;
+      }
+
+      .menu #h3::before {
+         content: '▶ ';
+         font-size: 80%;
+         color: green;
+      }
+
+      .menu.active #h3::before {
+         content: '▼ ';
+      }
+
+      #ul {
+         display: none;
+      }
+
+      #ul.active {
+         display: block;
+      }
+
+      .outer {
+         height: 160px;
+         max-width: 500px;
+         position: relative;
+         margin: 0px auto;
+      }
+
+      .container {
+         height: 130px;
+         width: 400px;
+         position: relative;
+         overflow: hidden;
+      }
+
+      .carusel__list {
+         display: flex;
+         list-style: none;
+         padding: 0;
+      }
+
+      .arrow {
+         top: 50%;
+         margin-top: -13px;
+         position: absolute;
+      }
+
+      .left-arrow {
+         left: -30px;
+      }
+
+      .right-arrow {
+         left: 100%;
+         margin-left: -90px;
+      }
+
+      .inner {
+         position: relative;
+         margin-left: 0px;
+         transition: 0.25s all;
+      }
+
+      h3 {
+         margin: 0;
+         padding-bottom: .1em;
+         padding-right: 20px;
+         font-size: 1.1em;
+         line-height: 20px;
+      }
+
+      .pane p {
+         text-align: left;
+         margin: 0;
+         padding: 0;
+         font: 500 16px/18px BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      }
+
+      .pane {
+         height: 120px;
+         width: 600px;
+         margin: 0;
+         background: #464744;
+         padding: 10px 20px 10px;
+         border-top: solid 2px #c4df9b;
+         position: relative;
+      }
+
+      .remove-button {
+         position: absolute;
+         font-size: 110%;
+         top: 0;
+         color: darkred;
+         right: 10px;
+         display: block;
+         width: 24px;
+         height: 24px;
+         border: none;
+         background: transparent;
+         cursor: pointer;
+      }
+
+      #tree li {
+         cursor: pointer;
+      }
+
+      table {
+         border-collapse: collapse;
+         margin-bottom: 30px;
+      }
+
+      th,
+      td {
+         border: 1px solid black;
+         padding: 4px;
+      }
+
+      th {
+         cursor: pointer;
+      }
+
+      th:hover {
+         background: yellow;
+      }
+
+      #contents {
+         padding: 5px;
+         border: 1px green solid;
+         background-color: rgb(98, 116, 72);
+         margin-bottom: 30px;
+      }
+  
+      #thumbs{
+         display: flex;
+         column-gap: 15px;
+         padding: 0;
+      }
+   </style>
+
+</head>
+
+<body>
+   <h1>[ Positioning ]</h1>
+
+   <div id="field">
+      <img id="ball" src="https://en.js.cx/clipart/ball.svg"> . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+   </div>
+
+   <div class="parent">
+      <div id="elem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt autem praesentium tenetur aspernatur
+         nemo dicta debitis possimus. Placeat, repellendus mollitia. Lorem ipsum dolor sit amet consectetur adipisicing
+         elit.
+      </div>
+   </div>
+
+   <p class="text">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab consequuntur nobis voluptates tempora veniam
+      ad omnis est illo error maxime alias tenetur atque sequi cum expedita debitis corporis accusamus eos quos
+      consequatur, quas dolor officia fugit voluptate. Reiciendis, quos asperiores?
+   </p>
+
+   <div class="block__btn">
+      <button class="btn__one" onclick="this.scrollIntoView()">this.scrollIntoView()</button>
+      <button class="btn__one" onclick="this.scrollIntoView(false)">this.scrollIntoView(false)</button>
+   </div>
+
+   <div class="block__btn">
+      <button class="btn__two" onclick="document.body.style.overflow = 'hidden'">document.body.style.overflow =
+         'hidden'</button>
+      <button class="btn__two" onclick="document.body.style.overflow = ''">document.body.style.overflow = ''</button>
+   </div>
+
+   <div class="block__btn">
+      <button id="btn__tree" onclick="btnRect(this)">Показать результаты вызова
+         button.getBoundingClientRect() для этой кнопки</button>
+   </div>
+
+
+   <p class="text">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab consequuntur nobis voluptates tempora veniam
+      ad omnis est illo error maxime alias tenetur atque sequi cum expedita debitis corporis accusamus eos quos
+      consequatur, quas dolor officia fugit voluptate. Reiciendis, quos asperiores?
+   </p>
+
+   <div class="menu">
+      <h3 id="h3">Сладости:</h3>
+      <ul id="ul">
+         <li>Пирожное</li>
+         <li>Пончик</li>
+         <li>Мёд</li>
+      </ul>
+   </div>
+
+   <div class="outer">
+      <button id="arw_l" class="arrow left-arrow">⇦</button>
+      <div class="container">
+         <div class="inner">
+            <ul class="carusel__list">
+               <li><img src="https://ru.js.cx/carousel/1.png"></li>
+               <li><img src="https://ru.js.cx/carousel/2.png"></li>
+               <li><img src="https://ru.js.cx/carousel/3.png"></li>
+               <li><img src="https://ru.js.cx/carousel/4.png"></li>
+               <li><img src="https://ru.js.cx/carousel/5.png"></li>
+               <li><img src="https://ru.js.cx/carousel/6.png"></li>
+               <li><img src="https://ru.js.cx/carousel/7.png"></li>
+               <li><img src="https://ru.js.cx/carousel/8.png"></li>
+               <li><img src="https://ru.js.cx/carousel/9.png"></li>
+               <li><img src="https://ru.js.cx/carousel/10.png"></li>
+            </ul>
+         </div>
+      </div>
+      <button id="arw_r" class="arrow right-arrow">⇨</button>
+   </div>
+
+   <div id="container">
+      <div class="pane">
+         <h3>Лошадь</h3>
+         <p>Домашняя лошадь - животное семейства непарнокопытных, одомашненный и единственный сохранившийся подвид дикой
+            лошади, вымершей в дикой природе, за исключением небольшой популяции лошади Пржевальского.</p>
+         <button onclick="hide()" class="remove-button">[x]</button>
+      </div>
+      <div class="pane">
+         <h3>Осёл</h3>
+         <p>Домашний осёл или ишак — одомашненный подвид дикого осла, сыгравший важную историческую роль в развитии
+            хозяйства и культуры человека. Все одомашненные ослы относятся к африканским ослам.</p>
+         <button onclick="hide()" class="remove-button">[x]</button>
+      </div>
+      <div class="pane">
+         <h3>Кошка</h3>
+         <p>Кошка, или домашняя кошка (лат. Félis silvéstris cátus), — домашнее животное, одно из наиболее популярных
+            (наряду с собакой) "животных-компаньонов". С точки зрения научной систематики, домашняя кошка —
+            млекопитающее семейства кошачьих отряда хищных. Ранее домашнюю кошку нередко рассматривали как отдельный
+            биологический вид.
+         </p>
+         <button onclick="hide()" class="remove-button">[x]</button>
+      </div>
+   </div>
+
+   <ul id="tree">
+      <li>Животные
+         <ul>
+            <li>Млекопитающие
+               <ul>
+                  <li>Коровы</li>
+                  <li>Ослы</li>
+                  <li>Собаки</li>
+                  <li>Тигры</li>
+               </ul>
+            </li>
+            <li>Другие
+               <ul>
+                  <li>Змеи</li>
+                  <li>Птицы</li>
+                  <li>Ящерицы</li>
+               </ul>
+            </li>
+         </ul>
+      </li>
+      <li>Рыбы
+         <ul>
+            <li>Аквариумные
+               <ul>
+                  <li>Гуппи</li>
+                  <li>Скалярии</li>
+               </ul>
+            </li>
+            <li>Морские
+               <ul>
+                  <li>Форель</li>
+                  <li>Треска</li>
+               </ul>
+            </li>
+         </ul>
+      </li>
+   </ul>
+
+   <table id="grid">
+      <thead>
+         <tr>
+            <th data-type="number">Возраст</th>
+            <th data-type="string">Имя</th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <td>5</td>
+            <td>Вася</td>
+         </tr>
+         <tr>
+            <td>10</td>
+            <td>Петя</td>
+         </tr>
+         <tr>
+            <td>12</td>
+            <td>Женя</td>
+         </tr>
+         <tr>
+            <td>9</td>
+            <td>Маша</td>
+         </tr>
+         <tr>
+            <td>1</td>
+            <td>Илья</td>
+         </tr>
+      </tbody>
+   </table>
+
+   <button data-tooltip="эта подсказка длиннее, чем элемент">Короткая кнопка</button>
+   <button data-tooltip="HTML<br>подсказка">Ещё кнопка</button>
+
+   <p>Прокрутите страницу, чтобы кнопки оказались у верхнего края, а затем проверьте, правильно ли выводятся подсказки.
+   </p>
+
+
+   <fieldset id="contents">
+      <legend>#contents</legend>
+      <p>
+         Как насчёт того, чтобы прочитать <a href="http://wikipedia.org">Википедию</a> или посетить <a
+            href="http://w3.org"><i>W3.org</i></a> и узнать о современных стандартах?
+      </p>
+   </fieldset>
+
+   <p><img id="largeImg" src="https://en.js.cx/gallery/img1-lg.jpg" alt="Large image"></p>
+
+   <ul id="thumbs">
+      <!-- браузер показывает небольшую встроенную подсказку из атрибута "title" при наведении курсора на текст -->
+      <li>
+         <a href="https://en.js.cx/gallery/img2-lg.jpg" title="Image 2"><img
+               src="https://en.js.cx/gallery/img2-thumb.jpg"></a>
+      </li>
+      <li>
+         <a href="https://en.js.cx/gallery/img3-lg.jpg" title="Image 3"><img
+               src="https://en.js.cx/gallery/img3-thumb.jpg"></a>
+      </li>
+      <li>
+         <a href="https://en.js.cx/gallery/img4-lg.jpg" title="Image 4"><img
+               src="https://en.js.cx/gallery/img4-thumb.jpg"></a>
+      </li>
+      <li>
+         <a href="https://en.js.cx/gallery/img5-lg.jpg" title="Image 5"><img
+               src="https://en.js.cx/gallery/img5-thumb.jpg"></a>
+      </li>
+      <li>
+         <a href="https://en.js.cx/gallery/img6-lg.jpg" title="Image 6"><img
+               src="https://en.js.cx/gallery/img6-thumb.jpg"></a>
+      </li>
+   </ul>
+
+   <script src="../practice/position_event/script.js"></script>
+</body>
+
+</html>

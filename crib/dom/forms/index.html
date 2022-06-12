@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="style.css">
+   <title>'forms'</title>
+
+</head>
+
+<body>
+   <h1>[ Формы, элементы управления ]</h1>
+   <ol>
+      <li> Свойства и методы формы</li>
+      <li> Фокусировка: focus/blur</li>
+      <li> События: change, input, cut, copy, paste</li>
+      <li> Отправка формы: событие и метод submit</li>
+   </ol>
+
+   <form name="my">
+      <input name="one" value="1">
+      <input name="two" value="2">
+      <textarea name="tree" cols="30" rows="5"></textarea>
+   </form>
+
+   <form name="radios">
+      <input type="radio" name="age" value="10">
+      <input type="radio" name="age" value="20">
+   </form>
+
+   <form id="fieldset_form">
+      <fieldset name="userFields" style="display: inline-block; border-color: hotpink;">
+         <legend>legend</legend>
+         <input name="login" type="text" value="<fieldset> как «подформа»">
+      </fieldset>
+   </form>
+
+   <form id="logForm">
+      <input name="login" value="form.elements.login == form.login" style="width: 200px;">
+   </form>
+
+   <form id="textform">
+      <input type="text" name="login1" value="оратная ссылка: el => form">
+   </form>
+
+   <select id="fruits">
+      <option value="apple">Яблоко</option>
+      <option value="pear">Груша</option>
+      <option value="banana">Банан</option>
+   </select>
+
+   <select id="music" multiple>
+      <option value="blues" selected>Блюз</option>
+      <option value="rock" selected>Рок</option>
+      <option value="classic">Классика</option>
+   </select>
+
+   <div class="focus_blur">
+      Ваш email: <input type="email" id="input1">
+      <div id="error"></div>
+   </div>
+
+   <div class="focus_blur-two">
+      Ваш email: <input type="email" id="input2">
+      <input type="text" style="width:280px" placeholder="введите неверный email и кликните сюда">
+   </div>
+
+   <ul>
+      <li class="li" tabindex="1">Один</li>
+      <li class="li" tabindex="0">Ноль</li>
+      <li class="li" tabindex="2">Два</li>
+      <li class="li" tabindex="-1">Минус один</li>
+   </ul>
+
+   <form id="formFocusOne" onfocus="this.className='focused'">
+      <input type="text" name="name" placeholder="Имя">
+      <input type="text" name="surname" placeholder="Фамилия">
+   </form>
+
+
+   <form id="formFocusTwo" style="display: inline-block;">
+      <input type="text" name="name" placeholder="Имя">
+      <input type="text" name="surname" placeholder="Фамилия">
+   </form>
+
+   <div class="change">
+      <input type="text" onchange="alert(this.value)" placeholder="событие: change">
+      <input type="button" value="Button">
+
+      <select onchange="alert(this.value)">
+         <option value="">Выберите что-нибудь</option>
+         <option value="1">Вариант 1</option>
+         <option value="2">Вариант 2</option>
+         <option value="3">Вариант 3</option>
+      </select>
+
+      <input type="text" id="changeInput"> oninput: <span id="spanResult"></span>
+
+      <input type="text" id="ccp" placeholder="сюда не вставить ни вырезать и не скопировать">
+   </div>
+
+   <div class="submit">
+      <form onsubmit="alert('submit!');return false">
+         Первый пример: нажмите Enter: <input type="text" value="Текст"><br>
+         Второй пример: нажмите на кнопку "Отправить": <input type="submit" value="Отправить">
+      </form>
+
+      <form onsubmit="alert('submit!');return false">
+         <input type="text" size="35" value="Установите фокус здесь и нажмите Enter">
+         <input type="submit" value="Отправить" onclick="alert('click')">
+      </form>
+   </div>
+
+
+   <script src="main.js"></script>
+</body>
+
+</html>

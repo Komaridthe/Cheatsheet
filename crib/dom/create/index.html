@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="../../../../RESET-CSS.css">
+   <title>'DOM'</title>
+
+</head>
+<style>
+   body {
+      background-color: #212121;
+      color: white;
+      font-family: roboto;
+      padding-left: 50px;
+   }
+
+   .title {
+      font-size: 30px;
+      font-weight: bold;
+      margin: 50px 0;
+   }
+
+   h3 {
+      font-weight: bold;
+      margin: 50px 0;
+      color: red;
+   }
+
+   .text {
+      margin-bottom: 20px;
+   }
+
+   span {
+      color: rgb(231, 231, 0);
+      font-weight: bold;
+   }
+
+   .lesson__list {
+      margin: 50px 0;
+      padding-left: 20px;
+      list-style: inherit;
+   }
+
+   .lesson__sub-list {
+      padding-left: 30px;
+      list-style: circle;
+   }
+
+   li::marker {
+      color: rgb(231, 231, 0);
+   }
+
+   .link {
+      display: block;
+      margin: 50px 0;
+      color: teal;
+   }
+
+   .input {
+      background-color: #5e5e5e;
+      color: white;
+   }
+</style>
+
+<body>
+   <div class="title"><span>JavaScript.</span> Браузерное окружкние. Работа с <span>DOM</span>.</div>
+   <div class="lesson">
+      <h3>Урок номер такой-то</h3>
+      <!--комментарий-->
+      <p class="text" data-size="1987">Просто <span>текст</span> для примера</p>
+   </div>
+
+   <ol id="list">
+      <li>0</li>
+      <li>1</li>
+      <li>2</li>
+   </ol>
+
+   <ul class="lesson__list" name="list">
+      <li class="lesson__item-list lesson__item-list_red">Пункт №1</li>
+      <li class="lesson__item-list" id="listItem">Пункт №2</li>
+      <li class="lesson__item-list" data-item="45">Пункт №3
+         <ul class="lesson__sub-list">
+            <li class="lesson__item-sub-list">Подпункт №1</li>
+            <li class="lesson__item-sub-list">Подпункт №2</li>
+            <li class="lesson__item-sub-list" data-item="88">Подпункт №3</li>
+         </ul>
+      </li>
+      <li class="lesson__item-list lesson__item-list_blue">Пункт №4</li>
+   </ul>
+   <p><a class="link" href="http://fls.guru">Я ссылка</a></p>
+   <p><input class="input" type="text" value="Я ввод"></p>
+
+   <script src="skript.js"></script>
+</body>
+
+</html>
