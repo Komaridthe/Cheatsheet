@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <title>'Промисы, async/await'</title>
+
+   <style>
+      html {
+         background-color: #212121;
+         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23ffffff' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+         background-size: 3px;
+         font-family: Arial, sans-serif;
+         color: #fff;
+      }
+
+      body {
+         margin: 0;
+
+      }
+
+      .inner {
+         display: flex;
+         flex-direction: column;
+         justify-content: space-between;
+         gap: 2rem;
+      }
+
+      .ul__list {
+         margin: 0 auto;
+      }
+
+      .list__item {
+         list-style: circle;
+      }
+
+      p {
+         margin: 100px auto 10px;
+         text-align: center;
+         font: 700 32px/40px BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      }
+
+      img {
+         height: 150px;
+         width: 300px;
+         display: block;
+         margin: 0 auto;
+      }
+
+      .cercle {
+         transition-property: width, height;
+         transition-duration: 2s;
+         transform: translateX(-50%) translateY(-50%);
+         border-radius: 50%;
+         margin: 0 auto;
+      }
+
+      .btn {
+         display: none;
+         padding: 1em 2em;
+         width: 6rem;
+         margin: 0 auto;
+      }
+   </style>
+
+</head>
+
+<body>
+   <div class="inner">
+      <p>Промисы, async/await</p>
+      <img alt="Промисы, async/await"
+         src="https://habrastorage.org/getpro/habr/post_images/2c8/f4a/252/2c8f4a252d33ee663665fd7df02b45ed.jpg"></img>
+      <ul class="ul__list">
+         <li class="list__item">Введение: колбэки</li>
+         <li class="list__item">Промисы</li>
+         <li class="list__item">Thenable</li>
+         <li class="list__item">Промисы: обработка ошибок</li>
+         <li class="list__item">Промисификация</li>
+         <li class="list__item">Promise API</li>
+         <li class="list__item">Async/await</li>
+      </ul>
+      <button class="btn">Push</button>
+      <div class="cercle"></div>
+   </div>
+
+   <script src="main.js"></script>
+</body>
+
+</html>
