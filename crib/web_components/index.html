@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="style.css">
+   <title>'WEB-components'</title>
+
+
+
+</head>
+
+<body>
+   <h1>[ WEB-components ]</h1>
+   <p id="firstP">Веб-компоненты — совокупность стандартов, которая позволяет создавать новые, пользовательские
+      HTML-элементы со
+      своими свойствами, методами, инкапсулированными DOM и стилями.</p>
+   <ul>
+      <li>С орбитальной высоты</li>
+      <li>Пользовательские элементы (Custom Elements)</li>
+      <li>Shadow DOM</li>
+      <li>Элемент "template"</li>
+      <li>Слоты теневого DOM, композиция</li>
+      <li>Настройка стилей теневого DOM</li>
+      <li>Теневой DOM и события</li>
+   </ul>
+
+   <time-formatted datetime="2019-12-01" year="numeric" month="long" day="numeric" hour="numeric" minute="numeric"
+      second="numeric" time-zone-name="short"></time-formatted>
+
+   <new-time-formatted id="elem" hour="numeric" minute="numeric" second="numeric"></new-time-formatted>
+
+   <button is="hello-button">hello-button</button>
+
+   <!-- <show-hello name="John"></show-hello> -->
+
+   <div id="el"></div>
+
+   <template>
+      <tr>
+         <td>Содержимое</td>
+      </tr>
+      <script>
+         alert("Привет");
+      </script>
+   </template>
+
+   <template id="tmpl">
+      <style>
+         p {
+            font-weight: bold;
+         }
+      </style>
+      <p id="message"></p>
+   </template>
+
+   <div id="element">Нажми на меня</div>
+
+   <user-card>
+      <span slot="username">Иван Иванов</span>
+      <span slot="birthday">01.01.2001</span>
+   </user-card>
+
+   <user-card-two>
+      <div>Я люблю плавать.</div>
+      <span slot="username">Пётр Петров</span>
+      <span slot="birthday">02.02.2002</span>
+      <div>...И играть в волейбол!</div>
+   </user-card-two>
+
+   <custom-menu>
+      <span slot="title">Сладости:</span>
+      <li slot="item">Леденцы</li>
+      <li slot="item">Фруктовые тосты</li>
+      <li slot="item">Кексы</li>
+   </custom-menu>
+
+   <div>
+      <template id="tmpl2">
+         <style>
+            .x {
+               font-size: 22px;
+               color: rgb(252, 56, 56);
+               cursor: pointer;
+            }
+
+            ul {
+               color: rgb(174, 95, 248);
+               margin: 0;
+            }
+
+            .closed ul {
+               display: none;
+            }
+         </style>
+         <div class="menu">
+            <slot name="title" class="x"></slot>
+            <ul>
+               <slot name="item"></slot>
+            </ul>
+         </div>
+      </template>
+
+      <custom-menu-two id="menu">
+         <span slot="title">Рыба:</span>
+      </custom-menu-two>
+   </div>
+
+
+   <div>
+      <template id="hostTmpl">
+         <style>
+            /* стиль будет применён изнутри к элементу <custom-dialog> */
+            :host {
+               position: fixed;
+               left: 50%;
+               top: 50%;
+               transform: translate(-50%, -50%);
+               display: inline-block;
+               border: 1px solid red;
+               padding: 10px;
+            }
+         </style>
+         <slot></slot>
+      </template>
+
+      <custom-dialog>
+         Hello!
+      </custom-dialog>
+   </div>
+
+
+   <div>
+      <template id="hostTmplTwo">
+         <style>
+            :host([centered]) {
+               position: absolute;
+               left: 50%;
+               top: 60rem;
+               transform: translate(-50%, -50%);
+               border-color: blue;
+            }
+
+            :host {
+               display: inline-block;
+               border: 1px solid red;
+               padding: 10px;
+            }
+         </style>
+         <slot></slot>
+      </template>
+
+      <custom-dialog-two centered>
+         Centered!
+      </custom-dialog-two>
+
+      <custom-dialog-two>
+         Not centered.
+      </custom-dialog-two>
+   </div>
+
+
+   <div style="margin: 15px">
+      <style>
+         span {
+            font-weight: bold
+         }
+      </style>
+
+      <user-card-style>
+         <div slot="username"><span>John Smith</span></div>
+      </user-card-style>
+   </div>
+
+   <div style="margin: 15px">
+      <user-card-style-two>
+         <div slot="username"><span>Poul Stemets</span></div>
+      </user-card-style-two>
+   </div>
+
+   <div style="margin: 15px">
+      <user-card-style-tree>
+         <div slot="username">
+            <div>Alex Jons</div>
+         </div>
+      </user-card-style-tree>
+   </div>
+
+
+   <div>
+      <template id="tmplFour">
+         <style>
+            .field {
+               color: var(--user-card-field-color, green);
+            }
+         </style>
+         <div class="field">Имя: <slot name="username"></slot>
+         </div>
+         <div class="field">Дата рождения: <slot name="birthday"></slot>
+         </div>
+      </template>
+
+      <user-card-four>
+         <span slot="username">John Smith</span>
+         <span slot="birthday">01.01.2001</span>
+      </user-card-four>
+   </div>
+
+
+   <div>
+      <user-card-event></user-card-event>
+
+      <user-card-event-two id="userCardEvent">
+         <span slot="username">Алексей Алексеич</span>
+      </user-card-event-two>
+   </div>
+
+   <div id="outer"></div>
+
+
+   <script src="main.js"></script>
+</body>
+
+</html>

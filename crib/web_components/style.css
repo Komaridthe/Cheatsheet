@@ -1,0 +1,43 @@
+html {
+   background-color: #212121;
+   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23ffffff' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+   background-size: 3px;
+   font-family: Arial, sans-serif;
+   color: #fff;
+}
+
+h1 {
+   margin: 100px auto 10px;
+   text-align: center;
+   font: 700 32px/40px BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+#firstP {
+   margin: 15px 30px;
+}
+new-time-formatted {
+   display: block;
+   margin: 15px 0px;
+   font-size: 24px;
+   color: red;
+}
+
+h5 {
+   color: aqua;
+}
+user-card {
+   display: block;
+   margin: 15px 0px;
+}
+user-card-two {
+   display: block;
+   margin: 15px 0px;
+}
+custom-menu-two {
+   display: block;
+   margin: 15px 0px;
+}
+user-card-four {
+   --user-card-field-color: blue;
+   /* если переменная --user-card-field-color не определена, будет использован цвет blue */
+}
+
