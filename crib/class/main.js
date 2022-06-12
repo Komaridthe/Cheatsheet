@@ -1,4 +1,4 @@
-let warn = { console };
+let { warn } = console;
 
 
 warn('============ Базовый синтаксис ===========');
