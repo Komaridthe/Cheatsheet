@@ -1,0 +1,8 @@
+
+export let user = 'Dmitry';
+
+
+
+
+
+
