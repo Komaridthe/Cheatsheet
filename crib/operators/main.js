@@ -28,7 +28,6 @@ x = 5 ** 3;
 console.log(`Результат возведения в степень: ${x}`); // 125
 
 
-
 warn('===== СПЕЦИАЛЛЬНЫЕ ВОЗМОЖНОСТИ ОПЕРАТОРОВ =====');
 // Применение оператора сложения к строкам
 let resultOne = "Куда" + " " + "ты" + " " + "лезешь" + "?";
@@ -57,14 +56,13 @@ let resultThree_c = 12 * "somesing";
 console.log(resultThree_c); // NaN
 console.log(typeof resultThree_c); // number
 
-// Оперфторы до сложения со строкой выполняются как обычно
+//! Оперфторы до сложения со строкой выполняются как обычно
 let resultFour = 23 + 84 + " число";
 console.log(resultFour); // 107 число
 
 
-
 warn('===== УНАРНЫЙ ОПЕРАТОР СЛОЖЕНИЯ + =====');
-// Со строками
+// Со строками (один из вариантов преоразования/приведения типов)
 let resultFive = +"54";
 console.log(resultFive); // 54
 console.log(typeof resultFive); // number
@@ -83,12 +81,11 @@ console.log(+users + +admins); // 47
 console.log(Number(users) + Number(admins)); // 47
 
 
-
 warn('===== ОПЕРАТОР ПРИСВОЕНИЯ =====');
-let a = 1 + 2;
+let a = 1 + 3;
 let b = 3;
 
-let result = 8 - (a = b + 3);
+let result = 8 - (a = b + 3); // у оператора сложения приоритет выше чем у присваивания
 console.log("Результат в скобках: " + a); // 6
 console.log("Общий результат: " + result); // 2
 
@@ -118,10 +115,9 @@ boys += 1 + 2;
 console.log(boys); // 8
 
 
-
-warn('===== ИНКРЕМЕНТ / ДЕКРИМЕНТ =====');
+warn('===== ИНКРЕМЕНТ / ДЕКРЕМЕНТ =====');
 //! Используется только с переменной
-// Инкремент ++
+//* Инкремент ++
 let addUser = 2;
 addUser++;
 console.log(addUser); // 3
@@ -131,38 +127,35 @@ addUser = addUser + 1;
 или
 addUser += 1;
 */
-// Декремент --
+//* Декремент --
 let removeUser = 2;
 removeUser--;
 console.log(removeUser); // 1
 
-// Постфиксная форма
+//* Постфиксная форма
 let counter = 1;
 console.log(counter++); // 1
 console.log(counter--); // 2
 
-// Префиксная форма
+//* Префиксная форма
 console.log(++counter); // 2
 console.log(--counter); // 1 
 
 //* Примеры:
-// Постфиксная форма
-// Переменная newUsers получает новое знечение ДО присвоения оператора
+// При постфиксной форме переменная newUsers получает новое знечение ДО присвоения оператора
 let usersCounter = 4;
 let newUsers = usersCounter++;
 console.log(newUsers); // 4
 
-// Префиксная форма
-// Переменная newUsers получает новое знечение ПОСЛЕ присвоения оператора
+// При префиксная форме переменная получит новое знечение уже ПОСЛЕ присвоения оператора
 let usersCounterTwo = 4;
 let newUsersTwo = ++usersCounterTwo;
 console.log(newUsersTwo); // 5
 
-//! Приоритет выполнения действия выше у оператора чем у Инкримента/Дикримента
+//! Приоритет выполнения действия выше у Инкримента/Дикремента чем у оператора
 let userCounter = 0;
 let newUser = 2 * ++userCounter;
 console.log(newUser); // 2
-
 
 
 warn('===== ОПЕРАТОРЫ СРАВНЕНИЯ =====');
@@ -213,7 +206,6 @@ ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
 */
 
 
-
 warn("======== СРАВНЕНИЕ РАЗНЫХ ТИПОВ   ========");
 //* Преобразование в число
 console.log('58' > 10); // true
@@ -255,7 +247,6 @@ console.log(null >= 0); //! true
 console.log(undefined > 0); // false
 console.log(undefined == 0); // false
 console.log(undefined >= 0); // false
-
 
 
 warn('===== ЛОГИЧЕСКИЕ ОПЕРАТОРЫ =====');
