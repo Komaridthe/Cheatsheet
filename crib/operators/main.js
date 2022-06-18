@@ -54,7 +54,7 @@ console.log(resultThree_b); // 30
 console.log(typeof resultThree_b); // number
 
 let resultThree_c = 12 * "somesing";
-console.log(resultThree_c); // Nan
+console.log(resultThree_c); // NaN
 console.log(typeof resultThree_c); // number
 
 // Оперфторы до сложения со строкой выполняются как обычно
@@ -354,8 +354,8 @@ console.log("2" * "3"); // 6
 console.log(4 + 5 + 'px'); // 9px строка
 console.log("$" + 4 + 5); // $45 сторока
 console.log("4" - 2); // 2
-console.log('4px' - 2); // Nan
-console.log(7/0); // infinity
+console.log('4px' - 2); // NaN
+console.log(7/0); // Infinity
 console.log(" -9 " + 5); //  -9 5
 console.log(" -9 " - 5); // -14
 console.log(null + 1); // 1
