@@ -214,7 +214,9 @@ console.log('007' > 7); // false
 // Логическое значение 
 // true  становится 1, а false - 0.
 console.log(true == 1); // true
-console.log(false == 0); // false               /* ОПЕРАТОР СРАВНЕНИЯ ПРЕОБРАЗУЕТ ОПЕРАНД В ЧИСЛО */
+console.log(false == 0); // false
+
+//! ОПЕРАТОР СРАВНЕНИЯ ПРЕОБРАЗУЕТ ОПЕРАНД В ЧИСЛО
 
 //* Интересная ситуация
 let itemA = 0;
@@ -251,7 +253,7 @@ console.log(undefined >= 0); // false
 
 warn('===== ЛОГИЧЕСКИЕ ОПЕРАТОРЫ =====');
 //* Оператор || (или)
-//! Если есть хотя бы дин оператор true то возвращается значение true
+//! Если есть хотя бы один оператор true то возвращается ПЕРВОЕ значение true
 console.log(true || true); // true
 console.log(false || true); // true
 console.log(true || false); // true
@@ -296,14 +298,14 @@ console.log('Фрилансер' && 0 && 2 && 3); // 0
 // null - false
 console.log(1 && 2 && null && 3); // null
 // Все true
-console.log(15 && '42'); // 42 - возвращается последний true операнд
+console.log(15 && '42'); //! 42 - возвращается последний true операнд
 
 //! ПРИОРИТЕТ ОПЕРАТОРА && БОЛЬШЕ ЧЕМ У ОПЕРАТОРА ||
-console.log(4 && 2 || 3 && 0);
+console.log(4 && 2 || 3 && 0); // 2
 
 // Подобие условия
-let obuser = 1;
-(obuser > 0) && console.log(`Пользовательский ${obuser}`); // Пользовательский 1
+let abuser = 1;
+(abuser > 0) && console.log(`Пользовательский ${abuser}`); // Пользовательский 1
 
 /*
 * Оператор !(НЕ)
@@ -337,49 +339,26 @@ console.log(me ?? 'Без имени'); // Nick
 
 
 //* Примеры
-console.log("" + 1 + 0); // 10 строка
-console.log("" - 1 + 0); // -1
-console.log(true + false); // 1
-console.log(6 / "3"); // 2
-console.log("2" * "3"); // 6
-console.log(4 + 5 + 'px'); // 9px строка
-console.log("$" + 4 + 5); // $45 сторока
-console.log("4" - 2); // 2
-console.log('4px' - 2); // NaN
-console.log(7/0); // Infinity
-console.log(" -9 " + 5); //  -9 5
-console.log(" -9 " - 5); // -14
-console.log(null + 1); // 1
-console.log(undefined + 1); // NaN
-console.log(" \t \n" -2); // -2
-
-//---------------------------------------------------------
-
-console.log('35' + - "22");
-console.log('35' * '22');
-//console.log('558' > 22++);
+console.log("" + 1 + 0);
+console.log("" - 1 + 0);
+console.log(true + false);
+console.log(6 / "3");
+console.log("2" * "3");
+console.log(4 + 5 + 'px');
+console.log("$" + 4 + 5);
+console.log("4" - 2);
+console.log('4px' - 2);
+console.log(7/0);
+console.log(" -9 " + 5);
+console.log(" -9 " - 5);
+console.log(null + 1);
+console.log(undefined + 1);
+console.log(" \t \n" -2);
+console.log('5' + - "2");
+console.log('10' * '2');
+// console.log('558' > 22++);
 let ab = 0;
 let bc = ab++;
 console.log(ab);
 console.log(!false && 48 || 13 && !'');
 
-
-let block = document.querySelector('.block');
-console.log(block)
-
-
- "use strict"
-const obj = {
-   foo: 10,
-   bar: function() {
-     console.log(this)
-   },
-   baz: () => {
-    console.log(this)
-   }
- }
-
- const bar = obj.bar
- obj.bar()
- obj.baz()
- bar()
