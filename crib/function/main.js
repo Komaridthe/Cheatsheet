@@ -1,6 +1,6 @@
-"use strict"
+"use strict";
 
-let {warn} = console;
+let { warn } = console;
 
 
 warn("=== Объявление функции (Function Declaration) ===");
@@ -34,24 +34,21 @@ function getSumm() {
 }
 getSumm();
 
-
 //* Локальные и внешние переменные
 function getMessage() {
   let mess = "Привет"; // Локальная переменная
   console.log(mess);
-};
+}
 // console.log(mess); - вызовет ошибку
-
 
 //* Внешняя переменная
 let mes;
 
 function showMyMessage() {
   mes = "Ку-ку!";
-};
+}
 showMyMessage();
 console.log(mes);
-
 
 //* Внешняя переменная
 let myMess = "Сообщение 1";
@@ -59,10 +56,9 @@ let myMess = "Сообщение 1";
 function givMyMess() {
   myMess = "Сообщение 2";
   console.log(myMess);
-};
+}
 console.log(myMess);
 givMyMess();
-
 
 //* Глобальные переменные
 let globalVar = "Я глобальная переменная";
@@ -81,10 +77,9 @@ function getMeSumm() {
 
   let nuSumm = nuOne + nuTwo;
   console.log(globalVar);
-};
+}
 console.log(globalVar);
 getMeSumm();
-
 
 //* Параметры (аргументы)
 function calcSumm(nOne = 1, nTwo = 2) {
@@ -93,9 +88,8 @@ function calcSumm(nOne = 1, nTwo = 2) {
 
   let nummSumm = nOne + nTwo;
   console.log(`Сумма:${nummSumm}`);
-};
+}
 calcSumm(5, 5); // Значения в скобках заменят параметры по умолчанию
-
 
 //* Функции-колбеки
 function calckSumm(numOne, numTwo, more, less) {
@@ -106,15 +100,14 @@ function calckSumm(numOne, numTwo, more, less) {
   } else {
     less();
   }
-};
+}
 function showMoreMessage() {
   console.log(`Больше чем 3`);
-};
+}
 function showLessMessage() {
   console.log(`Меньше чем 3`);
-};
+}
 calckSumm(1, 5, showMoreMessage, showLessMessage);
-
 
 //* Возврат результата
 function clcSumm(numOne, numTwo) {
@@ -123,17 +116,17 @@ function clcSumm(numOne, numTwo) {
   return numSumm; // Возврат
 
   //! Дальше код выполняться не будет
-};
+}
 let funcRezult = clcSumm(1, 2);
 
 console.log(funcRezult);
 
-
 //* Рекурсия - вызов функцией самой себя.
 function clculateSumm(numOne, numTwo) {
   let result = 1;
-  
-  for (let i = 0; i < numTwo; i++) { // Умножает result на numOne numTwo раз в цикле
+
+  for (let i = 0; i < numTwo; i++) {
+    // Умножает result на numOne numTwo раз в цикле
     result *= numOne;
   }
   return result;
@@ -167,9 +160,9 @@ sMessage();
 function gSumm() {
   let summ = 1 + 2;
   console.log(summ);
-};
+}
 
-someVar = gSumm;
+let someVar = gSumm;
 
 someVar();
 gSumm();
@@ -182,7 +175,7 @@ if (2 > 1) {
     let summ = 12 + 2;
     console.log(summ);
   }
-};
+}
 // getMyNewSumm(); //! Ошибка
 
 //! Необходимо только объявить переменную вне блока
@@ -198,8 +191,11 @@ getaSumm();
 
 
 warn("=== Функции стрелки (arrow functions) ===");
-// let имя переменной = function (параметр, ...параметр) => выражение
-
+/*
+let имя переменной = function (параметр, ...параметр) => выражение
+ Это создаёт функцию func, которая принимает аргументы arg1..argN, затем вычисляет expression в правой части
+с их использованием и возвращает результат.
+*/
 // Однострочная стрелочная функция
 let gMess = (text, name) => text + ", " + name + "!";
 console.log(gMess("Привет", "Вася"));
@@ -210,6 +206,75 @@ let someMessage = (text, name) => {
   return message;
 };
 console.log(someMessage("Пока", "Вася"));
+
+/*
+! У стрелочных функций нет «this»
+  Если происходит обращение к this, его значение берётся снаружи.
+Например, можно использовать это для итерации внутри метода объекта:
+*/
+let group = {
+	title: "Our Group",
+	students: ["John", "Pete", "Alice"],
+ 
+	showList() {
+	  this.students.forEach(
+		 student => console.log(this.title + ': ' + student)
+	  );
+	}
+ };
+ group.showList();
+ /*
+  Отсутствие this естественным образом ведёт к другому ограничению: стрелочные функции не могут быть использованы как конструкторы.
+! Они не могут быть вызваны с new.
+
+! У стрелочных функций также нет переменной arguments.
+Это отлично подходит для декораторов, когда нам нужно пробросить вызов с текущими this и arguments.
+*/
+function defer(f, ms) {
+	return function(){
+		setTimeout(() => f.apply(this, arguments), ms)
+	};
+}
+
+function sayHello(who) {
+	console.log('Hello, ' + who);
+}
+
+let sayHiDeferred = defer(sayHello, 2000);
+sayHiDeferred("Alexy"); // выводит "Hello, Alexy" через 2 секунды
+
+
+warn("=== синтаксис new Functions) ===");
+// let func = new Function([arg1, arg2, ...argN], functionBody);
+let sum = new Function("a", "b", "return a + b");
+console.log(sum(1, 2));
+
+// вариант без аргументов
+let sayHi = new Function(console.log('Hi!'));
+sayHi();
+/*
+ Главное отличие от других способов объявления функции, заключается в том, что функция
+создаётся полностью «на лету» из строки, переданной во время выполнения.
+new Function позволяет превратить любую строку в функцию.
+ Например, можно получить новую функцию с сервера и затем выполнить её:
+*/
+let str // =  ..код с сервера..
+let func = new Function(str)
+/*
+ Это используется в очень специфических случаях, например, когда мы получаем код с сервера
+для динамической компиляции функции из шаблона, в сложных веб-приложениях.
+  Переданные явно параметры – гораздо лучшее архитектурное решение, которое не вызывает проблем у минификаторов.
+
+!  Когда функция создаётся с использованием new Function, в её [[Environment]] записывается ссылка
+! не на внешнее лексическое окружение, в котором она была создана, а на глобальное.
+Поэтому такая функция имеет доступ только к глобальным переменным.
+*/
+function getFunc () {
+	let value = "test";
+	let func = new Function('alert(value)');
+	return func;
+}
+// getFunc()() - ошибка: value  не определено
 
 
 warn("=== Планирование setTimeout и setInterval ===");
@@ -259,14 +324,3 @@ function showMyNumber(num) {
   if (resultTwo === 6) clearInterval(interval);
 }
 let interval = setInterval(showMyNumber, 1000, 1);
-
-
-
-
-
-
-
-
-
-
-
