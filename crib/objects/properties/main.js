@@ -91,7 +91,6 @@ console.log(JSON.stringify(descriptor, null, 2));
 let michael = {};
 Object.defineProperty(michael, 'name', {
    value: 'Michael',
-   writable: false,
    configurable: false,
 });
 // Object.defineProperty(michael, 'name', {writable: true}); //! Ошибка!
